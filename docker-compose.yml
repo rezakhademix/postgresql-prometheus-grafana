@@ -76,6 +76,7 @@ volumes:
     grafana:
     postgresql-exporter:
 
+
 networks:
     monitoring:
         driver: bridge
