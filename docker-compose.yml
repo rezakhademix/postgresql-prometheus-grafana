@@ -1,0 +1,81 @@
+services:
+    
+    postgresql:
+        image: postgres:15.4
+        container_name: postgresql
+        environment:
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_NAME}
+            PGDATA: /data/postgres
+            TZ: Asia/Tehran
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USERNAME}"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+        volumes:
+            - postgresql:/data/postgres
+        ports:
+            - "5432:5432"
+        restart: unless-stopped
+        networks:
+            - monitoring
+
+
+    prometheus:
+        image: prom/prometheus
+        container_name: prometheus
+        volumes:
+            - ./docker/prometheus/:/etc/prometheus/
+            - prometheus:/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--storage.tsdb.path=/prometheus'
+            - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+            - '--web.console.templates=/usr/share/prometheus/consoles'
+        ports:
+            - "${PROMETHEUS_PORT:-9090}:9090"
+        restart: unless-stopped
+        networks:
+             - monitoring
+
+    grafana:
+        image: grafana/grafana
+        container_name: grafana
+        environment:
+            GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+            GF_USERS_ALLOW_SIGN_UP: false
+        volumes:
+            - grafana:/var/lib/grafana
+        ports:
+            - "${GRAFANA_PORT:-3000}:3000"
+        restart: unless-stopped
+        networks:
+            - monitoring
+
+    postgresql-exporter:
+        image: prometheuscommunity/postgres-exporter
+        container_name: postgresql-exporter
+        ports:
+            - "9187:9187"
+        environment:
+            DATA_SOURCE_NAME: "postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?sslmode=disable"
+        depends_on:
+            prometheus:
+                condition: service_started
+            postgresql:
+                condition: service_healthy
+        restart: unless-stopped
+        networks:
+            - monitoring
+
+volumes:
+    postgresql:
+    prometheus:
+    grafana:
+    postgresql-exporter:
+
+networks:
+    monitoring:
+        driver: bridge
