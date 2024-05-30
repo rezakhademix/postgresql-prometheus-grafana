@@ -1,7 +1,7 @@
 # Monitor PostgreSQL With Prometheus and Grafana
 
-For a full guide please head to this medium story!
-
+[If you need a complete guide please head to this medium story!
+](https://rezakhademix.medium.com/a-complete-guide-to-monitor-postgresql-with-prometheus-and-grafana-5611af229882)
 
 ## Requirements
 * Install Docker
