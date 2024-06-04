@@ -29,7 +29,7 @@
 * and so much more...
   
 *  [Here is a sample image of grafana dashboard!
-](https://rezakhademix.medium.com/a-complete-guide-to-monitor-postgresql-with-prometheus-and-grafana-5611af229882)
+](https://grafana.com/api/dashboards/9628/images/6026/image)
 
 
 ## Ports
