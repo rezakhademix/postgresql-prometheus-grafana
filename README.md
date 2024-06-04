@@ -28,9 +28,6 @@
 * Sessions
 * and so much more...
   
-*  [Here is a sample image of grafana dashboard!
-](https://grafana.com/api/dashboards/9628/images/6026/image)
-
 
 ## Ports
 The containers and their exposed ports are:
