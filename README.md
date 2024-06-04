@@ -26,6 +26,11 @@
 * Parallel Workers
 * Transactions
 * Sessions
+* and so much more...
+  
+*  [Here is a sample image of grafana dashboard!
+](https://rezakhademix.medium.com/a-complete-guide-to-monitor-postgresql-with-prometheus-and-grafana-5611af229882)
+
 
 ## Ports
 The containers and their exposed ports are:
