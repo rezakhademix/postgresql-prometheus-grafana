@@ -10,7 +10,7 @@
 * Install GNU Make (Not essential)
 
 ## Use the following command to run
-* Run `docker compose up` (If you installed makefile you can use `make up`)
+* Run `docker compose up -d` (If you installed makefile you can use `make up`)
 
 
 ## You'll be able to monitor  
