@@ -27,7 +27,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "admeqpmxj588wa"
+        "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
         "h": 1,
@@ -41,7 +41,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "admeqpmxj588wa"
+            "uid": "${DS_PROMETHEUS}"
           },
           "refId": "A"
         }
@@ -770,7 +770,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "admeqpmxj588wa"
+        "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
         "h": 1,
@@ -784,7 +784,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "admeqpmxj588wa"
+            "uid": "${DS_PROMETHEUS}"
           },
           "refId": "A"
         }
@@ -1500,7 +1500,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "admeqpmxj588wa"
+        "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
         "h": 1,
@@ -1514,7 +1514,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "admeqpmxj588wa"
+            "uid": "${DS_PROMETHEUS}"
           },
           "refId": "A"
         }
@@ -2956,7 +2956,7 @@
         "current": {
           "selected": false,
           "text": "app-prometheus",
-          "value": "admeqpmxj588wa"
+          "value": "${DS_PROMETHEUS}"
         },
         "hide": 0,
         "includeAll": false,
