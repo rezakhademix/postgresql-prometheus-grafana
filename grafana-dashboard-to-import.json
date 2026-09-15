@@ -88,9 +88,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -105,7 +103,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "pg_static{release=\"$release\", instance=\"$instance\"}",
+          "expr": "pg_static{job=\"$job\", instance=\"$instance\"}",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -169,9 +167,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -251,9 +247,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -268,7 +262,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "SUM(pg_stat_database_tup_inserted{release=\"$release\", datname=~\"$datname\", instance=~\"$instance\"})",
+          "expr": "SUM(pg_stat_database_tup_inserted{job=\"$job\", datname=~\"$datname\", instance=~\"$instance\"})",
           "format": "time_series",
           "intervalFactor": 2,
           "refId": "A",
@@ -331,9 +325,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -411,9 +403,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -428,7 +418,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "pg_settings_max_connections{release=\"$release\", instance=\"$instance\"}",
+          "expr": "pg_settings_max_connections{job=\"$job\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -490,9 +480,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -569,9 +557,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -648,9 +634,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -728,9 +712,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -807,9 +789,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -886,9 +866,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -966,9 +944,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -1045,9 +1021,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -1124,9 +1098,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -1222,12 +1194,7 @@
       "id": 22,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["mean", "lastNotNull", "max", "min"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1246,7 +1213,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "avg(rate(process_cpu_seconds_total{release=\"$release\", instance=\"$instance\"}[$interval]) * 1000)",
+          "expr": "avg(rate(process_cpu_seconds_total{job=\"$job\", instance=\"$instance\"}[$interval]) * 1000)",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "CPU Time",
@@ -1329,12 +1296,7 @@
       "id": 26,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["mean", "lastNotNull", "max", "min"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true,
@@ -1355,7 +1317,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "process_open_fds{release=\"$release\", instance=\"$instance\"}",
+          "expr": "process_open_fds{job=\"$job\", instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Open FD",
@@ -1438,12 +1400,7 @@
       "id": 24,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["mean", "lastNotNull", "max", "min"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1462,7 +1419,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "avg(rate(process_resident_memory_bytes{release=\"$release\", instance=\"$instance\"}[$interval]))",
+          "expr": "avg(rate(process_resident_memory_bytes{job=\"$job\", instance=\"$instance\"}[$interval]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Resident Mem",
@@ -1475,7 +1432,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "avg(rate(process_virtual_memory_bytes{release=\"$release\", instance=\"$instance\"}[$interval]))",
+          "expr": "avg(rate(process_virtual_memory_bytes{job=\"$job\", instance=\"$instance\"}[$interval]))",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Virtual Mem",
@@ -1558,11 +1515,7 @@
       "id": 1,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["mean", "lastNotNull", "max"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1676,11 +1629,7 @@
       "id": 60,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1797,11 +1746,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1901,11 +1846,7 @@
       "id": 5,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2007,11 +1948,7 @@
       "id": 66,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2126,11 +2063,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2233,11 +2166,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2339,11 +2268,7 @@
       "id": 14,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2446,10 +2371,7 @@
       "id": 4,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2549,10 +2471,7 @@
       "id": 62,
       "options": {
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull"
-          ],
+          "calcs": ["mean", "lastNotNull"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2654,11 +2573,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "sum"
-          ],
+          "calcs": ["mean", "lastNotNull", "sum"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2730,9 +2645,7 @@
         "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -2830,12 +2743,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["mean", "lastNotNull", "max", "min"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -2949,12 +2857,7 @@
       "options": {
         "alertThreshold": true,
         "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["mean", "lastNotNull", "max", "min"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -3030,11 +2933,7 @@
   "preload": false,
   "refresh": "10s",
   "schemaVersion": 41,
-  "tags": [
-    "postgres",
-    "db",
-    "stats"
-  ],
+  "tags": ["postgres", "db", "stats"],
   "templating": {
     "list": [
       {
@@ -3045,6 +2944,7 @@
         "includeAll": false,
         "label": "datasource",
         "name": "DS_PROMETHEUS",
+        "description": "The Prometheus data source containing PostgreSQL exporter metrics.",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
@@ -3061,6 +2961,7 @@
         },
         "label": "Interval",
         "name": "interval",
+        "description": "The lookback window used by rate and irate queries. Auto follows the dashboard time range and resolution.",
         "options": [
           {
             "selected": false,
@@ -3104,8 +3005,8 @@
       },
       {
         "current": {
-          "text": "",
-          "value": ""
+          "text": "postgresql",
+          "value": "postgresql"
         },
         "datasource": {
           "type": "prometheus",
@@ -3113,32 +3014,12 @@
         },
         "definition": "",
         "includeAll": false,
-        "label": "Namespace",
-        "name": "namespace",
+        "label": "Job",
+        "name": "job",
         "options": [],
-        "query": "query_result(pg_exporter_last_scrape_duration_seconds)",
+        "description": "The Prometheus scrape job. In this Compose stack, postgresql is the job that scrapes postgresql-exporter.",
+        "query": "label_values(pg_up, job)",
         "refresh": 2,
-        "regex": "/.*kubernetes_namespace=\"([^\"]+).*/",
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {
-          "text": "",
-          "value": ""
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
-        },
-        "definition": "",
-        "includeAll": false,
-        "label": "Release",
-        "name": "release",
-        "options": [],
-        "query": "query_result(pg_exporter_last_scrape_duration_seconds{kubernetes_namespace=\"$namespace\"})",
-        "refresh": 2,
-        "regex": "/.*release=\"([^\"]+)/",
         "sort": 1,
         "type": "query"
       },
@@ -3156,8 +3037,9 @@
         "label": "Instance",
         "name": "instance",
         "options": [],
-        "query": "query_result(pg_up{release=\"$release\"})",
-        "refresh": 1,
+        "description": "The exporter endpoint selected by the Job. The default is the Docker Compose service at postgresql-exporter:9187.",
+        "query": "query_result(pg_up{job=\"$job\"})",
+        "refresh": 2,
         "regex": "/.*instance=\"([^\"]+).*/",
         "sort": 1,
         "type": "query"
@@ -3176,6 +3058,7 @@
         "label": "Database",
         "multi": true,
         "name": "datname",
+        "description": "PostgreSQL database name. All selects every database exposed by the exporter.",
         "options": [],
         "query": "label_values(datname)",
         "refresh": 1,
@@ -3197,6 +3080,7 @@
         "label": "Lock table",
         "multi": true,
         "name": "mode",
+        "description": "PostgreSQL lock mode used to filter the lock panels.",
         "options": [],
         "query": "label_values({mode=~\"accessexclusivelock|accesssharelock|exclusivelock|rowexclusivelock|rowsharelock|sharelock|sharerowexclusivelock|shareupdateexclusivelock\"}, mode)",
         "refresh": 1,
